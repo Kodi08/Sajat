@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by Kodi08 (http://jsbin.com/ranepo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Szin ora">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ora</title>
+  <link href="https://fonts.googleapis.com/css?family=Six+Caps" rel="stylesheet">
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Six Caps', sans-serif;
+  font-size: 110px;
+  margin-top: -55px;
+}
+
+html, body {
+  height: 100%;
+}
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function szinesOra(){
+  var date = new Date();
+  console.log(date);
+  var ora = date.getHours();
+  var perc = date.getMinutes();
+  var masodperc = date.getSeconds();
+  
+  console.log(ora+':'+perc+':'+masodperc);
+  
+  if(ora < 10){
+    ora = '0' + ora;
+  }
+  if(perc < 10){
+    perc = '0' + perc;
+  }
+  if(masodperc < 10){
+    masodperc = '0' + masodperc;
+  }
+  
+  var pontosIdo = ora+':'+perc+':'+masodperc;
+  document.getElementById('clock').innerHTML = pontosIdo;
+  document.getElementById('clock').style.color = 'silver';
+  
+  var hexColor = '#' + ora + perc + masodperc;
+  document.body.style.background = hexColor;
+  
+  setTimeout(function(){szinesOra();}, 1000);  
+}
+
+szinesOra();
+
+</script>
+</body>
+</html>
